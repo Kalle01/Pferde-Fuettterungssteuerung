@@ -12,3 +12,8 @@ Mehr zum mechanischen Aufbau der Fütterung und zu den notwendigen Erweiterungen
 
 Ich würde mich sehr über Hilfe freuen!
 
+Aufbau dieses GitHubs:
+
+Das Verzeichnis "allgemeine_Dokumente" enthält Beschreibungen zum Projekt
+
+Das Verzeichnis "Quellcode" enthält den Python Quellcode
