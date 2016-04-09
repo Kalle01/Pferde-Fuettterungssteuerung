@@ -6,9 +6,9 @@ AktZeit=10:00:00
 
 Futter1Name="Hafer"
 Futter1Gewicht=20
-Futter2Name="Müsli"
+Futter2Name="MÃ¼sli"
 Futter3Gewicht=40
-Futter3Name="Kräuterfutter"
+Futter3Name="KrÃ¤uterfutter"
 Futter3Gewicht=40
 Futter4Name="Mineralfutter"
 Futter4Gewicht=5
@@ -20,7 +20,7 @@ MaximaleMengeKF=500
 Input (RFIDNr)
 RFIDNr=1234567890123456
 
-#Schaue in der DB Tabelle Pferdenamen nach welches Pferd der RFIDNr entspricht und fülle die Pferde Variablen
+#Schaue in der DB Tabelle Pferdenamen nach welches Pferd der RFIDNr entspricht und fÃ¼lle die Pferde Variablen
 
 PferdeID =10
 PferdeName="Donna"
@@ -33,7 +33,7 @@ MengeFutter4=10
 Heu-J-N=True
 HeuZeit=240
 
-#Schaue in der DB Tabelle Fuetterungsprotokoll nach wieviel Futter das Pferd heute schon bekommen hat und fülle die Pferde Variablen
+#Schaue in der DB Tabelle Fuetterungsprotokoll nach wieviel Futter das Pferd heute schon bekommen hat und fÃ¼lle die Pferde Variablen
 
 LetztesFutterDatum=01.01.2016
 LetzteFutterZeit=00:00:00
@@ -45,17 +45,17 @@ HeuraumZutritt=False
 ZuteilungHeuZeit=0
 
  
-#Zentrale Fütterungslogik
+#Zentrale FÃ¼tterungslogik
 
 #Zuerst das Heu
 
 if Heu-J-N=True:
 	print ("Pferd ", PferdeName, " bekommt Heu")
-	FunkHeuTuer(true)# hier folgt die Function FunkHeuTuer öffnen
+	FunkHeuTuer(1)# hier folgt die Function FunkHeuTuer 1 Ã¶ffnen
 	
 elif HeuZeit/VerteilZeit*(ZyklusStart-AktZeit) >ZuteilungHeuZeit:
 	print ("Pferd ", PferdeName, " bekommt ", Futter2Name)
-	FunkHeuSchieber(true)# hier folgt die Function FunkHeuSchieber füttern	
+	FunkHeuSchieber(1)# hier folgt die Function FunkHeuSchieber 1 fÃ¼ttern	
 
 else:
 	print ("Pferd ", PferdeName, " bekommt zur Zeit kein Heu ")	
@@ -66,31 +66,30 @@ else:
 if AktZeit - LetzteFutterZeit >= Fresspause and MengeStd <= MaximaleMengeKF:
 	if MengeFutter1/VerteilZeit*(ZyklusStart-AktZeit) + Futter1Gewicht >=ZuteilungFutter1:
 		print ("Pferd ", PferdeName, " bekommt ", Futter1Name)
-		FunkMotor1(true) # hier folgt die Function FunkMotor1 füttern
-		ZuteilungFutter1 = ZuteilungFutter1 + Futter1Gewicht
-		# ZuteilungFutter1 in DB Tabelle Fuetterungsprotokoll speichern
-		# Datensatz Datum, Uhrzeit, Menge, Futterart in DB Tabelle Anlagenprotokoll speichern
+		FunkMotor(Motor1) # hier folgt die Function FunkMotor fÃ¼ttern mit Ansteuerung Motor1
+		save to DB AktZeit PferdeID Futter1Gewicht 
+		# Datensatz Datum, Uhrzeit, Menge Schneckenumdrehung Futter1, Futterart in DB Tabelle FÃ¼tterungsprotokoll speichern
 		
 	elif MengeFutter2/VerteilZeit*(ZyklusStart-AktZeit) + Futter2Gewicht >=ZuteilungFutter2:
 		print ("Pferd ", PferdeName, " bekommt ", Futter2Name)
-		FunkMotor2(true)# hier folgt die Function FunkMotor2 füttern
-		ZuteilungFutter2 = ZuteilungFutter2 + Futter2Gewicht
-		# ZuteilungFutter2 in DB Tabelle Fuetterungsprotokoll speichern
-		# Datensatz Datum, Uhrzeit, Menge, Futterart in DB Tabelle Anlagenprotokoll speichern
+		FunkMotor(Motor2)# hier folgt die Function FunkMotor fÃ¼ttern mit Ansteuerung Motor2
+		save to DB AktZeit PferdeID Futter2Gewicht
+		# Datensatz Datum, Uhrzeit, Menge Schneckenumdrehung Futter2, Futterart in DB Tabelle FÃ¼tterungsprotokoll speichern
+
 	
 	elif MengeFutter3/VerteilZeit*(ZyklusStart-AktZeit) + Futter3Gewicht >=ZuteilungFutter3:
 		print ("Pferd ", PferdeName, " bekommt ", Futter3Name)
-		FunkMotor3(true)# hier folgt die Function FunkMotor3 füttern
-		ZuteilungFutter3 = ZuteilungFutter3 + Futter3Gewicht
-		# ZuteilungFutter3 in DB Tabelle Fuetterungsprotokoll speichern
-		# Datensatz Datum, Uhrzeit, Menge, Futterart in DB Tabelle Anlagenprotokoll speichern
+		FunkMotor(Motor3)# hier folgt die Function FunkMotor fÃ¼ttern mit Ansteuerung Motor3
+		save to DB AktZeit PferdeID Futter3Gewicht
+		# Datensatz Datum, Uhrzeit, Menge Schneckenumdrehung Futter3, Futterart in DB Tabelle FÃ¼tterungsprotokoll speichern
+
 	
 	elif MengeFutter4/VerteilZeit*(ZyklusStart-AktZeit) + Futter4Gewicht >=ZuteilungFutter4:
 		print ("Pferd ", PferdeName, " bekommt ", Futter4Name)
-		FunkMotor(true)# hier folgt die Function FunkMotor4 füttern
-		ZuteilungFutter4 = ZuteilungFutter4 + Futter4Gewicht
-		# ZuteilungFutter4 in DB Tabelle Fuetterungsprotokoll speichern
-		# Datensatz Datum, Uhrzeit, Menge, Futterart in DB Tabelle Anlagenprotokoll speichern
+		FunkMotor(Motor4)# hier folgt die Function FunkMotor fÃ¼ttern mit Ansteuerung Motor 4
+		save to DB AktZeit PferdeID Futter1Gewicht
+		# Datensatz Datum, Uhrzeit, Menge Schneckenumdrehung Futter4, Futterart in DB Tabelle FÃ¼tterungsprotokoll speichern
+
 
 	else:
 		print ("Pferd ", PferdeName, " hat keinen Anspruch auf Kraftfutter")	
