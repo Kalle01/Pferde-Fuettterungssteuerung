@@ -54,12 +54,19 @@ ZuteilungHeuZeitaufgelaufen=0
 
 #Zuerst das Heu
 
-if Heu-J-N=True:
+if TorT0Darf=True:
+	# Schließen der Nachlaufsperre
+	if AnlagenNummer InklusiveNachlauf = true and Motor6AufKontakt = true
+		FunkNachlauf(AnlagenNummer) # hier folgt die Function FunkNachlauf mit Parameter Anlage in dem das Pferd steht
 	print ("Pferd ", PferdeName, " bekommt Heu")
-	FunkHeuTuer(AnlagenNummer)# hier folgt die Function FunkHeuTuer öffnen mit Parameter Anlage in dem das Pferd steht
+	FunkTorAuf(AnlagenNummer)# hier folgt die Function FunkTorAuf öffnen mit Parameter Anlage in dem das Pferd steht
 	
 elif HeuZeit/VerteilZeit*(ZyklusStart-AktZeit) >ZuteilungHeuZeit and AnlagenNummer = H1-9:
+	# Schließen der Nachlaufsperre
+	if AnlagenNummer InklusiveNachlauf = true and Motor6AufKontakt = true
+		FunkNachlauf(AnlagenNummer) # hier folgt die Function FunkNachlauf mit Parameter Anlage in dem das Pferd steht
 	print ("Pferd ", PferdeName, " bekommt ", Futter2Name)
+	LetzteHeuFressZeit = AktZeit
 	FunkHeuSchieber(AnlagenNummer)# hier folgt die Function FunkHeuSchieber 1 füttern mit Parameter Anlage in dem das Pferd steht
 else:
 	print ("Pferd ", PferdeName, " bekommt zur Zeit kein Heu ")	
@@ -70,24 +77,30 @@ else:
 if AnlagenNummer = (Z0, K0-K9) and MengeStd <= MaximaleMengeKF:
 	if MengeFutter1/VerteilZeit*(ZyklusStart-AktZeit) + Futter1Gewicht >=ZuteilungFutter1aufgelaufen and AktZeit - LetzteFutterZeit >= Fresspause:
 		# Schließen der Nachlaufsperre
-		FunkNachlauf(AnlagenNummer) # hier folgt die Function FunkNachlauf mit Parameter Anlage in dem das Pferd steht
+		if AnlagenNummer InklusiveNachlauf = true and Motor6AufKontakt = true
+			FunkNachlauf(AnlagenNummer) # hier folgt die Function FunkNachlauf mit Parameter Anlage in dem das Pferd steht
 		print ("Pferd ", PferdeName, " bekommt ", Futter1Name, "Fütterung läuft")
+		KFFresszeit = AktZeit
 		FunkMotor(Motor1, AnlagenNummer) # hier folgt die Function FunkMotor füttern mit Parameter Anlage in dem das Pferd steht und Ansteuerung Motor1
 		# Datensatz Datum, Uhrzeit, Menge Schneckenumdrehung Futter1, Futterart in DB Tabelle Fütterungsprotokoll speichern
 		save to DB AktZeit PferdeID Futter1Gewicht Futter1Name
 		
 	elif MengeFutter2/VerteilZeit*(ZyklusStart-AktZeit) + Futter2Gewicht >=ZuteilungFutter2aufgelaufen and AktZeit - LetzteFutterZeit >= Fresspause:
 		# Schließen der Nachlaufsperre
-		FunkNachlauf(AnlagenNummer) # hier folgt die Function FunkNachlauf mit Parameter Anlage in dem das Pferd steht
+		if AnlagenNummer InklusiveNachlauf = true and Motor6AufKontakt = true
+			FunkNachlauf(AnlagenNummer) # hier folgt die Function FunkNachlauf mit Parameter Anlage in dem das Pferd steht
 		print ("Pferd ", PferdeName, " bekommt ", Futter2Name, "Fütterung läuft")
+		KFFresszeit = AktZeit
 		FunkMotor(Motor2, AnlagenNummer)# hier folgt die Function FunkMotor füttern mit Parameter Anlage in dem das Pferd steht und Ansteuerung Motor2
 		# Datensatz Datum, Uhrzeit, Menge Schneckenumdrehung Futter2, Futterart in DB Tabelle Fütterungsprotokoll speichern
 		save to DB AktZeit PferdeID Futter2Gewicht Futter2Name
 		
 	elif MengeFutter3/VerteilZeit*(ZyklusStart-AktZeit) + Futter3Gewicht >=ZuteilungFutter3aufgelaufen and AktZeit - LetzteFutterZeit >= Fresspause:
 		# Schließen der Nachlaufsperre
-		FunkNachlauf(AnlagenNummer) # hier folgt die Function FunkNachlauf mit Parameter Anlage in dem das Pferd steht
+		if AnlagenNummer InklusiveNachlauf = true and Motor6AufKontakt = true
+			FunkNachlauf(AnlagenNummer) # hier folgt die Function FunkNachlauf mit Parameter Anlage in dem das Pferd steht
 		print ("Pferd ", PferdeName, " bekommt ", Futter3Name, "Fütterung läuft")
+		KFFresszeit = AktZeit
 		FunkMotor(Motor3, AnlagenNummer)# hier folgt die Function FunkMotor füttern mit Parameter Anlage in dem das Pferd steht und Ansteuerung Motor3
 		# Datensatz Datum, Uhrzeit, Menge Schneckenumdrehung Futter3, Futterart in DB Tabelle Fütterungsprotokoll speichern
 		save to DB AktZeit PferdeID Futter3Gewicht Futter3Name
@@ -95,8 +108,10 @@ if AnlagenNummer = (Z0, K0-K9) and MengeStd <= MaximaleMengeKF:
 	# Futter 4 ist besonders. Dieses wird immer „zeitgleich“ zu einem anderen Futter gefüttert. Hier ist, wenn vorhanden, der Mineralfutterbehälter anzuschließen
 	elif MengeFutter4/VerteilZeit*(ZyklusStart-AktZeit) + Futter4Gewicht >=ZuteilungFutter4aufgelaufen:
 		# Schließen der Nachlaufsperre
-		FunkNachlauf(AnlagenNummer) # hier folgt die Function FunkNachlauf mit Parameter Anlage in dem das Pferd steht
+		if AnlagenNummer InklusiveNachlauf = true and Motor6AufKontakt = true	
+			FunkNachlauf(AnlagenNummer) # hier folgt die Function FunkNachlauf mit Parameter Anlage in dem das Pferd steht
 		print ("Pferd ", PferdeName, " bekommt ", Futter4Name, "Fütterung läuft")
+		KFFresszeit = AktZeit
 		FunkMotor(Motor4, AnlagenNummer)# hier folgt die Function FunkMotor füttern füttern mit Parameter Anlage in dem das Pferd steht und Ansteuerung Motor4
 		# Datensatz Datum, Uhrzeit, Menge Schneckenumdrehung Futter4, Futterart in DB Tabelle Fütterungsprotokoll speichern
 		save to DB AktZeit PferdeID Futter4Gewicht Futter4Name
@@ -104,5 +119,14 @@ if AnlagenNummer = (Z0, K0-K9) and MengeStd <= MaximaleMengeKF:
 	else:
 		print ("Pferd ", PferdeName, " hat keinen Anspruch auf Kraftfutter")	
 else:
-	print ("Pferd ", PferdeName, " hat keinen Anspruch auf Kraftfutter")	
-function OeffneNachlaufsperre(AnlagenNummer) 
+	print ("Pferd ", PferdeName, " hat keinen Anspruch auf Kraftfutter")
+
+#Schließen Heuraumtür bzw. Selektionstor
+if AnlagenNummer InklusiveTor = true and AktZeit - LetzteKFFressZeit >= SchutzZeit and Motor6ZuKontakt 0 false
+	
+	FunkTorZu(AnlagenNummer) # hier folgt die Function FunkTorZu mit Parameter Anlage in dem das Pferd steht
+
+#Öffnen der Nachlaufsperre	
+if AnlagenNummer InklusiveNachlauf = true and AktZeit - LetzteKFFressZeit > SchutzZeit or AktZeit - LetzteHeuFressZeit > SchutzZeitand and Motor5ZuKontakt = true and Motor6ZuKontakt 0 true
+	
+	OeffneNachlaufsperre(AnlagenNummer) # hier folgt die Function OeffneNachlaufsperre mit Parameter Anlage in dem das Pferd steht
