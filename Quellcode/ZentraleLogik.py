@@ -1,10 +1,21 @@
 # Startsequenz / Einlesen relevanter Daten und Parameter
 
-# Einlesen der eigen IP Adresse
+# Einlesen der pferdefutter.ini Datei
+# Einlesen der eigen IP Adresse / Datenpfad
 # Setzen der eigenen IP Adresse im Rechner
 
-# Einlesen der Datenpfades
 DatenPfad = 199.199.199.1
+
+# Einlesen der SQL Parameter
+SQLUser = admin
+SQLPW = Pferdefutter1
+SQLName = Pferdefutter
+
+# Connectieren der Datenbank
+
+import MySQLdb
+
+connection = MySQLdb.connect (host = DatenPfad, user = SQLUser, passwd = SQLPW, db = SQLName)
 
 # Einlesen der Zeit
 if Netzwerkverbindung vorhanden:
