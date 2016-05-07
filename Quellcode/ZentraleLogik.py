@@ -30,7 +30,7 @@ if AnlagenNummer[0]="Z":
 	
 	# Einlesen der Zentralstationsparameter
 	
-	TitelTextString=DatenPfad Tabelle BasisParameter Feld 
+	TitelTextString=DatenPfad Tabelle BasisParameter Feld TitelTextString
 	AdminName=DatenPfad Tabelle BasisParameter Feld AdminName
 	Passwort=DatenPfad Tabelle BasisParameter Feld Passwort
 	AutoLogOff=DatenPfad Tabelle BasisParameter Feld AutoLogOff
@@ -44,47 +44,47 @@ if AnlagenNummer[0]="Z":
 	SchutzZeit=DatenPfad Tabelle BasisParameter Feld SchutzZeit
 	MaximaleMengeKF=DatenPfad Tabelle BasisParameter Feld MaximaleMengeKF
 	
-	InklusiveTor=DatenPfad Tabelle BasisParameter Feld InklusiveTor
-	InklusiveNachlauf=DatenPfad Tabelle BasisParameter Feld InklusiveNachlauf
-	InklusiveFutterVorrat=DatenPfad Tabelle BasisParameter Feld InklusiveFutterVorrat
-	InklusiveFutter2=DatenPfad Tabelle BasisParameter Feld InklusiveFutter2
-	InklusiveFutter3=DatenPfad Tabelle BasisParameter Feld InklusiveFutter3
-	InklusiveFutter4=DatenPfad Tabelle BasisParameter Feld InklusiveFutter4
+	InklusiveTor=DatenPfad Tabelle BasisParameter Feld InklusiveTor where Datensatz = AnlagenNummer
+	InklusiveNachlauf=DatenPfad Tabelle BasisParameter Feld InklusiveNachlauf where Datensatz = AnlagenNummer
+	InklusiveFutterVorrat=DatenPfad Tabelle BasisParameter Feld InklusiveFutterVorrat where Datensatz = AnlagenNummer
+	InklusiveFutter2=DatenPfad Tabelle BasisParameter Feld InklusiveFutter2 where Datensatz = AnlagenNummer
+	InklusiveFutter3=DatenPfad Tabelle BasisParameter Feld InklusiveFutter3 where Datensatz = AnlagenNummer
+	InklusiveFutter4=DatenPfad Tabelle BasisParameter Feld InklusiveFutter4 where Datensatz = AnlagenNummer
 	
-	Futter1Name=DatenPfad Tabelle BasisParameter Feld Futter1Name
-	Futter1Gewicht=DatenPfad Tabelle BasisParameter Feld Futter1Gewicht
-	Motor1blockiert=DatenPfad Tabelle BasisParameter Feld Motor1blockiert
+	Futter1Name=DatenPfad Tabelle BasisParameter Feld Futter1Name where Datensatz = AnlagenNummer
+	Futter1Gewicht=DatenPfad Tabelle BasisParameter Feld Futter1Gewicht where Datensatz = AnlagenNummer
+	Motor1blockiert=DatenPfad Tabelle BasisParameter Feld Motor1blockiert where Datensatz = AnlagenNummer
 	if InklusiveFutterVorrat = true:
-		Futter1VorratMin=DatenPfad Tabelle BasisParameter Feld Futter1VorratMin
+		Futter1VorratMin=DatenPfad Tabelle BasisParameter Feld Futter1VorratMin where Datensatz = AnlagenNummer
 		
 	if InklusiveFutter2= true:
-		Futter2Name=DatenPfad Tabelle BasisParameter Feld Futter2Name
-		Futter2Gewicht=DatenPfad Tabelle BasisParameter Feld Futter2Gewicht
-		Motor2blockiert=DatenPfad Tabelle BasisParameter Feld Motor2blockiert
+		Futter2Name=DatenPfad Tabelle BasisParameter Feld Futter2Name where Datensatz = AnlagenNummer
+		Futter2Gewicht=DatenPfad Tabelle BasisParameter Feld Futter2Gewicht where Datensatz = AnlagenNummer
+		Motor2blockiert=DatenPfad Tabelle BasisParameter Feld Motor2blockiert where Datensatz = AnlagenNummer
 		if InklusiveFutterVorrat = true:
-			Futter2VorratMin=DatenPfad Tabelle BasisParameter Feld Futter2VorratMin
+			Futter2VorratMin=DatenPfad Tabelle BasisParameter Feld Futter2VorratMin where Datensatz = AnlagenNummer
 		
 	elif InklusiveFutter3 = true:
-		Futter3Name=DatenPfad Tabelle BasisParameter Feld Futter3Name
-		Futter3Gewicht=DatenPfad Tabelle BasisParameter Feld Futter3Gewicht
-		Motor3blockiert=DatenPfad Tabelle BasisParameter Feld Motor3blockiert
+		Futter3Name=DatenPfad Tabelle BasisParameter Feld Futter3Name where Datensatz = AnlagenNummer
+		Futter3Gewicht=DatenPfad Tabelle BasisParameter Feld Futter3Gewicht where Datensatz = AnlagenNummer
+		Motor3blockiert=DatenPfad Tabelle BasisParameter Feld Motor3blockiert where Datensatz = AnlagenNummer
 		if InklusiveFutterVorrat = true:
-			Futter3VorratMin=DatenPfad Tabelle BasisParameter Feld Futter3VorratMin
+			Futter3VorratMin=DatenPfad Tabelle BasisParameter Feld Futter3VorratMin where Datensatz = AnlagenNummer
 		
 	elif InklusiveFutter4 = true:
-		Futter4Name=DatenPfad Tabelle BasisParameter Feld Futter4Name
-		Futter4Gewicht=DatenPfad Tabelle BasisParameter Feld Futter4Gewicht
-		Motor4blockiert=DatenPfad Tabelle BasisParameter Feld Motor4blockiert
+		Futter4Name=DatenPfad Tabelle BasisParameter Feld Futter4Name where Datensatz = AnlagenNummer
+		Futter4Gewicht=DatenPfad Tabelle BasisParameter Feld Futter4Gewicht where Datensatz = AnlagenNummer
+		Motor4blockiert=DatenPfad Tabelle BasisParameter Feld Motor4blockiert where Datensatz = AnlagenNummer
 		if InklusiveFutterVorrat = true:
-			Futter4VorratMin=DatenPfad Tabelle BasisParameter Feld Futter4VorratMin
+			Futter4VorratMin=DatenPfad Tabelle BasisParameter Feld Futter4VorratMin where Datensatz = AnlagenNummer
 		
 	elif InklusiveNachlauf = true:
-		Motor5Ablockiert=DatenPfad Tabelle BasisParameter Feld Motor5Ablockier
-		Motor5Zblockiert=DatenPfad Tabelle BasisParameter Feld Motor5Zblockiert
+		Motor5Ablockiert=DatenPfad Tabelle BasisParameter Feld Motor5Ablockier where Datensatz = AnlagenNummer
+		Motor5Zblockiert=DatenPfad Tabelle BasisParameter Feld Motor5Zblockiert where Datensatz = AnlagenNummer
 		
 	elif InklusiveTor = true:
-		Motor6Ablockiert=DatenPfad Tabelle BasisParameter Feld Motor6Ablockiert
-		Motor6Zblockiert=DatenPfad Tabelle BasisParameter Feld Motor6Zblockiert
+		Motor6Ablockiert=DatenPfad Tabelle BasisParameter Feld Motor6Ablockiert where Datensatz = AnlagenNummer
+		Motor6Zblockiert=DatenPfad Tabelle BasisParameter Feld Motor6Zblockiert where Datensatz = AnlagenNummer
 	
 elif AnlagenNummer[0] = "K":
 
@@ -160,6 +160,10 @@ elif AnlagenNummer[0] = "H":
 	MaximaleMengeKF=DatenPfad Tabelle BasisParameter Feld MaximaleMengeKF
 	
 	HeuTyp=DatenPfad Tabelle HeuParameter Feld HeuTyp where Datensatz = AnlagenNummer
+	if HeuTyp=1:
+		Futtername = Heu
+	elif HeuTyp=2:
+		Futtername = Silage	
 	
 	InklusiveNachlauf=DatenPfad Tabelle HeuParameter Feld InklusiveNachlauf where Datensatz = AnlagenNummer
 	
@@ -170,18 +174,20 @@ elif AnlagenNummer[0] = "H":
 		Motor7Ablockiert=DatenPfad Tabelle HeuParameter Feld Motor7Ablockiert where Datensatz = AnlagenNummer
 		Motor7Zblockiert=DatenPfad Tabelle HeuParameter Feld Motor7Zblockiert where Datensatz = AnlagenNummer
 	
+# Ende der Initialisierung	
 	
 	
-# Ausgangszustand: Station ist leer, Nachlaufsperre befindet sich in Stellung offen
+# Ausgangszustand: Station ist leer, Nachlaufsperre befindet sich in Stellung offen, Tor ist in Zustand zu
 
-
-# Identifiziere Pferd und ermittle Pferddaten
+# Identifiziere Pferd und ermittle Pferdedaten
 
 
 If AnweSensor1 = 0:
 Schau nach dem RFIDLeser
 
-# Einlesen der Transpondernummer im Futtergang 
+# Einlesen der Transpondernummer im Futtergang mit der Verzögerung durch die Zeit ohne Erkennung (ZeitOErkennung)
+
+Pause = ZeitOErkennung
 Input (RFIDNr)
 RFIDNr=1234567890123456
 
@@ -205,16 +211,14 @@ HeuZeit2=240
 # Schaue via SQL Statement in der DB Tabelle FuetterungsProtokoll nach, wieviel Futter das Pferd heute und in den letzten 60 Minuten schon bekommen hat und fülle die Pferde Variablen
 
 
-
 LetzteKFFressZeit=00:00:00 30.06.2016
-LetzteHeuFressZeit=00:00:00 30.06.2016
-MengeStd=0
+MengeKFStd=0
 ZuteilungFutter1aufgelaufen=0
 ZuteilungFutter2aufgelaufen=0
 ZuteilungFutter3aufgelaufen=0
 ZuteilungFutter4aufgelaufen=0
-ZuteilungHeuZeit1aufgelaufen=0
-ZuteilungHeuZeit2aufgelaufen=0
+ZuteilungHeuZeit1aufgelaufen=0 #Aufaddierung Futtername Heu
+ZuteilungHeuZeit2aufgelaufen=0 #Aufaddierung Futtername Silage
 
 
 
@@ -254,41 +258,58 @@ else:
 	print ("Pferd ", PferdeName, " bekommt keinen Zugang")
 
 
-# Jetzt Heu und Silage	
+# Jetzt Heu und Silage
 
-if HeuZeit1/VerteilZeit*(ZyklusStart-AktZeit) >ZuteilungHeuZeit and AnlagenNummer = H1-9 and HeuTyp =1:
-	# Schließen der Nachlaufsperre
-	if InklusiveNachlauf = true and Motor6AufKontakt = true:
-		FunkNachlauf() # hier folgt die Function FunkNachlauf
-	print ("Pferd ", PferdeName, " bekommt ", Heu)
-	LetzteHeu1FressZeit = AktZeit
-	FunkHeuSchieber()# hier folgt die Function FunkHeuSchieber öffnen
-else:
-	print ("Pferd ", PferdeName, " bekommt zur Zeit kein Heu ")	
+if AnlagenNummer = H0-9:
+		
+	if HeuZeit1/VerteilZeit*(ZyklusStart-AktZeit) >ZuteilungHeuZeit and HeuTyp =1:
+		# Schließen der Nachlaufsperre wenn Nachlaufsprerre auf
+		if InklusiveNachlauf = true and Motor6AufKontakt = true:
+			FunkNachlauf() # hier folgt die Function FunkNachlauf
+		
+		# FunkHeuSchieber Öffnen wenn Heuschieber zu
+		if Motor5ZuKontakt = true:	
+			FunkHeuSchieber(1)# Function FunkHeuSchieber öffnen
+			print ("Pferd ", PferdeName, " bekommt Heu")
+			FutterZeit = AktZeit
+		
+	HeuFressZeit=AktZeit - Futterzeit
+	save to DB Tabelle FuetterungsProtokoll FutterZeit AnlagenNummer PferdeID Futtername HeuFressZeit
+	FunkHeuSchieber(0)# hier folgt die Function FunkHeuSchieber Schließen
 	
-if HeuZeit2/VerteilZeit*(ZyklusStart-AktZeit) >ZuteilungHeuZeit and AnlagenNummer = H1-9 and HeuTyp =2:
-	# Schließen der Nachlaufsperre
-	if InklusiveNachlauf = true and Motor6AufKontakt = true:
-		FunkNachlauf() # hier folgt die Function FunkNachlauf
-	print ("Pferd ", PferdeName, " bekommt ", Silage)
-	LetzteHeu2FressZeit = AktZeit
-	FunkHeuSchieber()# hier folgt die Function FunkHeuSchieber öffnen
-else:
-	print ("Pferd ", PferdeName, " bekommt zur Zeit kein Heu ")	
+	
+	elif HeuZeit2/VerteilZeit*(ZyklusStart-AktZeit) >ZuteilungHeuZeit and HeuTyp =2:
+		# Schließen der Nachlaufsperre wenn Nachlaufsprerre auf
+		if InklusiveNachlauf = true and Motor6AufKontakt = true:
+			FunkNachlauf() # hier folgt die Function FunkNachlauf
+		
+		# FunkHeuSchieber Öffnen wenn Heuschieber zu
+		if Motor5ZuKontakt = true:	
+			FunkHeuSchieber(1)# Function FunkHeuSchieber öffnen
+			print ("Pferd ", PferdeName, " bekommt Silage")
+			FutterZeit = AktZeit
+		
+	HeuFressZeit=AktZeit - Futterzeit
+	save to DB Tabelle FuetterungsProtokoll FutterZeit AnlagenNummer PferdeID Futtername HeuFressZeit
+	FunkHeuSchieber(0)# hier folgt die Function FunkHeuSchieber Schließen
+	
+	else:
+		print ("Pferd ", PferdeName, " bekommt zur Zeit kein Raufutter")	
 	
 	
 # Jetzt das Kraftfutter	
 
-if AnlagenNummer = (Z0, K0-K9) and MengeStd <= MaximaleMengeKF:
+if AnlagenNummer = (Z0, K0-K9) and MengeKFStd <= MaximaleMengeKF:
 	if MengeFutter1/VerteilZeit*(ZyklusStart-AktZeit) + Futter1Gewicht >=ZuteilungFutter1aufgelaufen and AktZeit - LetzteFutterZeit >= Fresspause:
 		# Schließen der Nachlaufsperre
 		if InklusiveNachlauf = true and Motor6AufKontakt = true
 			FunkNachlauf() # hier folgt die Function FunkNachlauf
 		print ("Anlage ", AnlagenNummer, ": Pferd ", PferdeName, " bekommt ", Futter1Name, "Fütterung läuft")
-		KFFresszeit = AktZeit
+		FutterZeit = AktZeit
 		FunkMotor(Motor1) # hier folgt die Function FunkMotor füttern mit Parameter Ansteuerung Motor1
 		# Datensatz Datum, Uhrzeit, AnlagenNummer, PferdeID, Menge Schneckenumdrehung Futter1, Futter1Name in DB Tabelle FuetterungsProtokoll speichern
-		save to DB Tabelle FuetterungsProtokoll AktZeit AnlagenNummer PferdeID Futter1Gewicht Futter1Name
+		save to DB Tabelle FuetterungsProtokoll FutterZeit AnlagenNummer PferdeID Futter1Gewicht Futter1Name
+		#Check Futter1Vorrat
 		if InklusiveFutterVorrat = true and Futter1VorratMin > Futter1Vorrat: 
 			print ("ACHTUNG ", Futter1Name, " in Anlage ", AnlagenNummer, " ist aufgebraucht" )
 			# Datensatz Datum, Uhrzeit, AnlagenNummer print ("ACHTUNG ", Futter1Name, " in Anlage ", AnlagenNummer, " ist aufgebraucht" ) in DB Tabelle AnlagenProtokoll speichern
@@ -299,10 +320,11 @@ if AnlagenNummer = (Z0, K0-K9) and MengeStd <= MaximaleMengeKF:
 		if InklusiveNachlauf = true and Motor6AufKontakt = true
 			FunkNachlauf() # hier folgt die Function FunkNachlauf
 		print ("Anlage ", AnlagenNummer, ": Pferd ", PferdeName, " bekommt ", Futter2Name, "Fütterung läuft")
-		KFFresszeit = AktZeit
+		FutterZeit = AktZeit
 		FunkMotor(Motor2) # hier folgt die Function FunkMotor füttern mit Parameter Ansteuerung Motor2
 		# Datensatz Datum, Uhrzeit, AnlagenNummer, PferdeID, Menge Schneckenumdrehung Futter2, Futter2Name in DB Tabelle FuetterungsProtokoll speichern
-		save to DB Tabelle FuetterungsProtokoll AktZeit AnlagenNummer PferdeID Futter2Gewicht Futter2Name
+		save to DB Tabelle FuetterungsProtokoll FutterZeit AnlagenNummer PferdeID Futter2Gewicht Futter2Name
+		#Check Futter2Vorrat
 		if InklusiveFutterVorrat = true and Futter2VorratMin > Futter2Vorrat: 
 			print ("ACHTUNG ", Futter2Name, " in Anlage ", AnlagenNummer, " ist aufgebraucht" )
 			# Datensatz Datum, Uhrzeit, AnlagenNummer print ("ACHTUNG ", Futter2Name, " in Anlage ", AnlagenNummer, " ist aufgebraucht" ) in DB Tabelle AnlagenProtokoll speichern
@@ -313,10 +335,11 @@ if AnlagenNummer = (Z0, K0-K9) and MengeStd <= MaximaleMengeKF:
 		if InklusiveNachlauf = true and Motor6AufKontakt = true
 			FunkNachlauf() # hier folgt die Function FunkNachlauf
 		print ("Anlage ", AnlagenNummer, ": Pferd ", PferdeName, " bekommt ", Futter3Name, "Fütterung läuft")
-		KFFresszeit = AktZeit
+		FutterZeit = AktZeit
 		FunkMotor(Motor3) # hier folgt die Function FunkMotor füttern mit Parameter Ansteuerung Motor3
 		# Datensatz Datum, Uhrzeit, AnlagenNummer, PferdeID, Menge Schneckenumdrehung Futter3, Futter3Name in DB Tabelle FuetterungsProtokoll speichern
-		save to DB Tabelle FuetterungsProtokoll AktZeit AnlagenNummer PferdeID Futter3Gewicht Futter3Name
+		save to DB Tabelle FuetterungsProtokoll FutterZeit AnlagenNummer PferdeID Futter3Gewicht Futter3Name
+		#Check Futter3Vorrat
 		if InklusiveFutterVorrat = true and Futter3VorratMin > Futter3Vorrat: 
 			print ("ACHTUNG ", Futter3Name, " in Anlage ", AnlagenNummer, " ist aufgebraucht" )
 			# Datensatz Datum, Uhrzeit, AnlagenNummer print ("ACHTUNG ", Futter3Name, " in Anlage ", AnlagenNummer, " ist aufgebraucht" ) in DB Tabelle AnlagenProtokoll speichern
@@ -328,10 +351,11 @@ if AnlagenNummer = (Z0, K0-K9) and MengeStd <= MaximaleMengeKF:
 		if InklusiveNachlauf = true and Motor6AufKontakt = true	
 			FunkNachlauf() # hier folgt die Function FunkNachlauf
 		print ("Anlage ", AnlagenNummer, ": Pferd ", PferdeName, " bekommt ", Futter4Name, "Fütterung läuft")
-		KFFresszeit = AktZeit
+		FutterZeit = AktZeit
 		FunkMotor(Motor4) # hier folgt die Function FunkMotor füttern füttern mit Parameter Ansteuerung Motor4
 		# Datensatz Datum, Uhrzeit, AnlagenNummer, PferdeID, Menge Schneckenumdrehung Futter4, Futter4Name in DB Tabelle FuetterungsProtokoll speichern
-		save to DB Tabelle FuetterungsProtokoll AktZeit AnlagenNummer PferdeID Futter4Gewicht Futter4Name
+		save to DB Tabelle FuetterungsProtokoll FutterZeit AnlagenNummer PferdeID Futter4Gewicht Futter4Name
+		#Check Futter4Vorrat
 		if InklusiveFutterVorrat = true and Futter4VorratMin > Futter4Vorrat: 
 			print ("ACHTUNG ", Futter4Name, " in Anlage ", AnlagenNummer, " ist aufgebraucht" )
 			# Datensatz Datum, Uhrzeit, AnlagenNummer print ("ACHTUNG ", Futter4Name, " in Anlage ", AnlagenNummer, " ist aufgebraucht" ) in DB Tabelle AnlagenProtokoll speichern
@@ -351,6 +375,6 @@ if InklusiveTor = true and AktZeit - LetzteKFFressZeit >= SchutzZeit and Motor6Z
 
 
 # Öffnen der Nachlaufsperre	
-if InklusiveNachlauf = true and AktZeit - LetzteKFFressZeit > SchutzZeit or AktZeit - LetzteHeuFressZeit > SchutzZeitand and Motor5ZuKontakt = true and Motor6ZuKontakt 0 true
+if InklusiveNachlauf = true and AktZeit - LetzteKFFressZeit > SchutzZeit or AktZeit - LetzteHeuFressZeit > SchutzZeit and Motor5ZuKontakt = true and Motor6ZuKontakt 0 true
 	
 	OeffneNachlaufsperre() # hier folgt die Function OeffneNachlaufsperre
